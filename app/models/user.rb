@@ -7,4 +7,5 @@ class User < ApplicationRecord
 	validates :introduction, length: {maximum: 150}
 	attachment :profile_photo
 	has_many :notes, dependent: :destroy
+	has_many :exercises, dependent: :destroy
 end
