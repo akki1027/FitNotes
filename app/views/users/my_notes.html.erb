@@ -1,0 +1,14 @@
+<h2>ワークアウトノート 一覧</h2>
+<%= link_to 'ワークアウトノートの新規作成', new_note_path %>
+
+<%= form_for @note do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name, autofocus: true, autocomplete: true, placeholder:"ノート名" %>
+	<%= f.submit '作成' %>
+<% end %>
+
+<h4>ノート</h4>
+<% @notes.each do |note| %>
+	<%= link_to note.name, note_path(note) %>
+	<%= link_to '編集する', edit_note_path(note) %>
+<% end %>

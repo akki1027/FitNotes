@@ -12,5 +12,69 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
+//= require jquery
 //= require_tree .
+
+// $(function() {
+// 	$('#add-set').click(function() {
+// 		$('#two').toggle();
+// 	});
+// });
+
+$(function() {
+	$('#add-set-two').click(function() {
+		$('#two').show();
+		$(this).hide();
+	});
+});
+
+$(function() {
+	$('.cancel-two').click(function() {
+		$("#two").hide();
+		$('#add-set-two').show();
+		$('.weight_two').val(null);
+		$('.set_two').val(null);
+		$('.rep_two').val(null);
+	});
+});
+// -----------------------------------------
+$(function() {
+	$('#add-set-three').click(function() {
+		$('#three').show();
+		$(this).hide();
+	});
+});
+
+$(function() {
+	$('.cancel-three').click(function() {
+		$("#three").hide();
+		$('#add-set-three').show();
+		$('.weight_three').val(null);
+		$('.set_three').val(null);
+		$('.rep_three').val(null);
+	});
+});
+// -----------------------------------------
+$(function() {
+	$('#add-set-four').click(function() {
+		$('#four').show();
+		$(this).hide();
+	});
+});
+
+$(function() {
+	$('.cancel-four').click(function() {
+		$("#four").hide();
+		$('#add-set-four').show();
+		$('.weight_four').val(null);
+		$('.set_four').val(null);
+		$('.rep_four').val(null);
+	});
+});
+
+
+
+
+
+
+

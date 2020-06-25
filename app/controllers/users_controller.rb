@@ -12,6 +12,11 @@ class UsersController < ApplicationController
   def update
   end
 
+  def my_notes
+    @note = Note.new
+    @notes = Note.all
+  end
+
   private
   def user_params
   	params.require(:user).permit(:name, :introduction, :profile_photo, :emai, :password)

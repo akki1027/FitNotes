@@ -1,0 +1,45 @@
+<div>
+	<% @exercises.each do |exercise| %>
+		<div>
+			<table>
+				<tbody>
+					<tr>
+						<td>エクササイズ名: <%= exercise.exercise_name %></td>
+						<td>重量: <%= exercise.weight %> kg</td>
+						<td>セット: <%= exercise.set %></td>
+						<td>レップ: <%= exercise.rep %> 回</td>
+						<td><%= link_to '編集', edit_note_exercise_path(exercise) %></td>
+					</tr>
+					<tr>
+						<% if exercise.weight_two.present? || exercise.set_two.present? || exercise.rep_two.present?  %>
+							<td></td>
+							<td>重量: <%= exercise.weight_two %> kg</td>
+							<td>セット: <%= exercise.set_two %></td>
+							<td>レップ: <%= exercise.rep_two %> 回</td>
+							<td></td>
+						<% end %>
+					</tr>
+					<tr>
+						<% if exercise.weight_three.present? || exercise.set_three.present? || exercise.rep_three.present?  %>
+							<td></td>
+							<td>重量: <%= exercise.weight_three %> kg</td>
+							<td>セット: <%= exercise.set_three %></td>
+							<td>レップ: <%= exercise.rep_three %> 回</td>
+							<td></td>
+						<% end %>
+					</tr>
+					<tr>
+						<% if exercise.weight_four.present? || exercise.set_four.present? || exercise.rep_four.present?  %>
+							<td></td>
+							<td>重量: <%= exercise.weight_four %> kg</td>
+							<td>セット: <%= exercise.set_four %></td>
+							<td>レップ: <%= exercise.rep_four %> 回</td>
+							<td></td>
+						<% end %>
+					</tr>
+				</tbody>
+			</table>
+			<%= exercise.exercise_note %>
+		</div>
+	<% end %>
+</div>

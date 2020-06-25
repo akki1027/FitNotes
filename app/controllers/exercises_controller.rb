@@ -1,6 +1,17 @@
 class ExercisesController < ApplicationController
-	before_action :correct_user, only: []
+	# before_action :correct_user, only: []
+	def new
+	end
+
 	def create
+		note = Note.find(params[:note_id])
+		exercise = current_user.exercises.new(excercise_params)
+		exercise.note_id = note.id
+		if exercise.save
+			redirect_to my_notes_path(current_user)
+		else
+			render 'notes/edit'
+		end
 	end
 
 	def edit
