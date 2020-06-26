@@ -4,12 +4,30 @@
     <title>FitNotes</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <script src="https://kit.fontawesome.com/ef1a52193c.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+
+  <% if user_signed_in? %>
+    <ul class="nav nav-tabs">
+      <li role="presentation"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+      <li role="presentation"><a class="username">ユーザー名: <%= current_user.name %></a></li>
+      <li role="presentation"><%= link_to 'トップ', root_path %></li>
+      <li role="presentation"><%= link_to 'マイページ', user_path(current_user) %></li>
+      <li role="presentation"><%= link_to 'ノート', my_notes_path(current_user) %></li>
+      <li role="presentation"><%= link_to 'ノートを作成する', new_note_path %></li>
+    </ul>
+  <% else %>
+    <ul class="nav nav-tabs">
+      <li role="presentation"><%= link_to '新規登録', new_user_registration_path %></li>
+      <li role="presentation"><%= link_to 'ログイン', new_user_session_path %></li>
+      <li role="presentation"><%= link_to 'トップ', root_path %></li>
+    </ul>
+  <% end %>
+
     <%= yield %>
   </body>
 </html>

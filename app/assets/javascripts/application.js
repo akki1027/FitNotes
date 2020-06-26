@@ -14,67 +14,89 @@
 //= require activestorage
 //= require jquery
 //= require_tree .
+//= require jquery
+//= require bootstrap-sprockets
 
 // $(function() {
-// 	$('#add-set').click(function() {
-// 		$('#two').toggle();
+// 	$('li').click(function() {
+// 		$(this).addClass('active');
 // 	});
 // });
 
+// two------------------------------------------
 $(function() {
 	$('#add-set-two').click(function() {
-		$('#two').show();
+		$('#two').addClass('show-field');
+		$('#two').removeClass('hide-field');
+		$('.set_two').val(2);
 		$(this).hide();
+		$('#add-set-three').show();
 	});
 });
-
 $(function() {
 	$('.cancel-two').click(function() {
-		$("#two").hide();
+		$("#two").addClass('hide-field');
+		$("#two").removeClass('show-field')
+		$("#three").addClass('hide-field');
+		$("#three").removeClass('show-field')
+		$("#four").addClass('hide-field');
+		$("#four").removeClass('show-field')
 		$('#add-set-two').show();
+		$('#add-set-three').hide();
+		$('#add-set-four').hide();
 		$('.weight_two').val(null);
 		$('.set_two').val(null);
 		$('.rep_two').val(null);
-	});
-});
-// -----------------------------------------
-$(function() {
-	$('#add-set-three').click(function() {
-		$('#three').show();
-		$(this).hide();
-	});
-});
-
-$(function() {
-	$('.cancel-three').click(function() {
-		$("#three").hide();
-		$('#add-set-three').show();
 		$('.weight_three').val(null);
 		$('.set_three').val(null);
 		$('.rep_three').val(null);
+		$('.weight_four').val(null);
+		$('.set_four').val(null);
+		$('.rep_four').val(null);
 	});
 });
-// -----------------------------------------
+// three----------------------------------------
+$(function() {
+	$('#add-set-three').click(function() {
+		$('#three').addClass('show-field');
+		$('#three').removeClass('hide-field');
+		$('.set_three').val(3);
+		$(this).hide();
+		$('#add-set-four').show();
+	});
+});
+$(function() {
+	$('.cancel-three').click(function() {
+		$("#three").addClass('hide-field');
+		$("#three").removeClass('show-field');
+		$('#four').addClass('hide-field');
+		$('#four').removeClass('show-field')
+		$('#add-set-three').show();
+		$('#add-set-four').hide();
+		$('.weight_three').val(null);
+		$('.set_three').val(null);
+		$('.rep_three').val(null);
+		$('.weight_four').val(null);
+		$('.set_four').val(null);
+		$('.rep_four').val(null);
+	});
+});
+// four-----------------------------------------
 $(function() {
 	$('#add-set-four').click(function() {
-		$('#four').show();
+		$('#four').addClass('show-field');
+		$('#four').removeClass('hide-field');
+		$('.set_four').val(4);
 		$(this).hide();
 	});
 });
-
 $(function() {
 	$('.cancel-four').click(function() {
-		$("#four").hide();
+		$("#four").addClass('hide-field');
+		$("#four").removeClass('show-field');
 		$('#add-set-four').show();
 		$('.weight_four').val(null);
 		$('.set_four').val(null);
 		$('.rep_four').val(null);
 	});
 });
-
-
-
-
-
-
-

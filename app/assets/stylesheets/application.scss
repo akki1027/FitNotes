@@ -1,0 +1,112 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.username {
+	color: black;
+	text-decoration: none;
+}
+
+.nav-tabs {
+	display: flex;
+    justify-content: center;
+}
+
+.add-new-note {
+	color: black;
+	background-color: #D5D7D4;
+	float: right;
+}
+.add-new-note:hover {
+	background-color: #B5B6B3;
+}
+
+.flex-note {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+.each-note {
+	height: 300px;
+	width: 300px;
+	margin: 10px 0;
+	border: 1px solid #ddd;
+	border-radius: 10%;
+}
+.each-note:hover {
+	box-shadow: 0 0 10px #ddd;
+}
+.group {
+	margin: 10px;
+}
+.list-item {
+	padding: 10px 15px;
+	border-bottom: 1px solid #ddd;
+}
+.edit-note {
+	padding: 3px;
+	color: black;
+	background-color: #D5D7D4;
+}
+
+
+
+// form-field-size-----------------------
+.form-control {
+	display: inline-block;
+}
+.sm-field {
+	width: 100px;
+}
+// ---------------------------------------
+
+// exercise-form--------------------------
+
+// exercise-name-field-----------
+.exercise-name-field {
+	width: 300px;
+}
+// ------------------------------
+// exercise-note-field-----------
+.exercise-note {
+	resize: none;
+	width: 550px;
+}
+// ------------------------------
+// add-btn-----------------------
+.add-btn-width {
+	width: 550px;
+}
+#add-set-three, #add-set-four {
+	display: none;
+}
+// ------------------------------
+// cancel-btn--------------------
+.cancel-btn {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+}
+// ------------------------------
+// hide-exercise-field-----------
+.hide-field {
+	display: none;
+}
+// ------------------------------
+.show-field, .add-btn, .flex-end {
+	display: flex;
+	justify-content: flex-end;
+}
+// ---------------------------------------

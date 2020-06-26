@@ -1,14 +1,38 @@
-<h2>ワークアウトノート 一覧</h2>
-<%= link_to 'ワークアウトノートの新規作成', new_note_path %>
+<div class="container">
+	<div class="row">
+		<div class="page-header">
+			<h5><span class="">ワークアウトノート 一覧<span></5>
+			<%= link_to new_note_path do %>
+				<span class="add-new-note btn btn-sm"><i class="fas fa-plus-circle"></i> ワークアウトノートの新規作成</span>
+			<% end %>
+		</div>
 
-<%= form_for @note do |f| %>
-	<%= f.label :name %>
-	<%= f.text_field :name, autofocus: true, autocomplete: true, placeholder:"ノート名" %>
-	<%= f.submit '作成' %>
-<% end %>
+		<div class="flex-note">
+		<% @notes.each do |note| %>
+			<div class="each-note">
+				<div class="group">
+					<div class="list-item" align="center"><%= link_to note.name, note_path(note) %><%= link_to '編集する', edit_note_path(note), class:"btn btn-sm edit-note" %></div>
+					<% note.exercises.each do |exercise| %>
+					<div class="list-item" style="font-size: 10px;">
+						<div><%= exercise.exercise_name %><br>
+						<%= exercise.weight %> kg <%= exercise.set %> set <%= exercise.rep %> reps<br>
+						<%= exercise.weight_two %> kg <%= exercise.set_two %> set <%= exercise.rep_two %> reps<br>
+						<%= exercise.weight_three %> kg <%= exercise.set_three %> set <%= exercise.rep_three %> reps<br>
+						<%= exercise.weight_four %> kg <%= exercise.set_four %> set <%= exercise.rep_four %> reps<br></div></div>
+					<% end %>
+				</div>
+			</div>
+		<% end %>
+		</div>
+	</div>
+</div>
 
-<h4>ノート</h4>
-<% @notes.each do |note| %>
-	<%= link_to note.name, note_path(note) %>
-	<%= link_to '編集する', edit_note_path(note) %>
-<% end %>
+<div class="container">
+	<div class="row">
+		<%= form_for @note do |f| %>
+			<%= f.label :name %>
+			<%= f.text_field :name, autofocus: true, autocomplete: true, placeholder:"ノート名" %>
+			<%= f.submit '作成' %>
+		<% end %>
+	</div>
+</div>

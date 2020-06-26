@@ -1,103 +1,150 @@
-<%= form_for [@note, @exercise] do |f| %>
-	<div>
-		<%= f.label :exercise_name %>
-		<%= f.text_field :exercise_name, placeholder:"エクササイズ名" %>
-	</div>
-	<div>
-		<%= f.label :weight %>
-		<%= f.number_field :weight, step:"0.1" %>kg
-		<%= f.label :set %>
-		<%= f.number_field :set %>
-		<%= f.label :rep %>
-		<%= f.number_field :rep %>
-	</div>
-
-	<button type=button id="add-set-two">セットを追加する</button>
-	<div id="two">
-		<%= f.label :weight_two %>
-		<%= f.number_field :weight_two, step:"0.1", class:"weight_two" %>kg
-		<%= f.label :set_two %>
-		<%= f.number_field :set_two, class:"set_two" %>
-		<%= f.label :rep_two %>
-		<%= f.number_field :rep_two, class:"rep_two" %>
-		<button type="button" class="cancel-two">消す</button>
-	</div>
-
-	<button type=button id="add-set-three">セットを追加する</button>
-	<div id="three">
-		<%= f.label :weight_three %>
-		<%= f.number_field :weight_three, step:"0.1", class:"weight_three" %>kg
-		<%= f.label :set_three %>
-		<%= f.number_field :set_three, class:"set_three" %>
-		<%= f.label :rep_three %>
-		<%= f.number_field :rep_three, class:"rep_three" %>
-		<button type="button" class="cancel-three">消す</button>
-	</div>
-
-	<button type=button id="add-set-four">セットを追加する</button>
-	<div id="four">
-		<%= f.label :weight_four %>
-		<%= f.number_field :weight_four, step:"0.1", class:"weight_four" %>kg
-		<%= f.label :set_four %>
-		<%= f.number_field :set_four, class:"set_four" %>
-		<%= f.label :rep_four %>
-		<%= f.number_field :rep_four, class:"rep_four" %>
-		<button type="button" class="cancel-four">消す</button>
-	</div>
-
-	<div>
-		<%= f.label :exercise_note %><br>
-		<%= f.text_area :exercise_note, placeholder:"コツやメモなど" %>
-	</div>
-	<div>
-		<%= f.submit '作成' %>
-	</div>
-<% end %>
-
-<div>
-	<% @exercises.each do |exercise| %>
-		<div>
-			<table>
-				<tbody>
-					<tr>
-						<td>エクササイズ名: <%= exercise.exercise_name %></td>
-						<td>重量: <%= exercise.weight %> kg</td>
-						<td>セット: <%= exercise.set %></td>
-						<td>レップ: <%= exercise.rep %> 回</td>
-						<td><%= link_to '編集', edit_note_exercise_path(exercise) %></td>
-					</tr>
-					<tr>
-						<% if exercise.weight_two.present? || exercise.set_two.present? || exercise.rep_two.present?  %>
-							<td></td>
-							<td>重量: <%= exercise.weight_two %> kg</td>
-							<td>セット: <%= exercise.set_two %></td>
-							<td>レップ: <%= exercise.rep_two %> 回</td>
-							<td></td>
-						<% end %>
-					</tr>
-					<tr>
-						<% if exercise.weight_three.present? || exercise.set_three.present? || exercise.rep_three.present?  %>
-							<td></td>
-							<td>重量: <%= exercise.weight_three %> kg</td>
-							<td>セット: <%= exercise.set_three %></td>
-							<td>レップ: <%= exercise.rep_three %> 回</td>
-							<td></td>
-						<% end %>
-					</tr>
-					<tr>
-						<% if exercise.weight_four.present? || exercise.set_four.present? || exercise.rep_four.present?  %>
-							<td></td>
-							<td>重量: <%= exercise.weight_four %> kg</td>
-							<td>セット: <%= exercise.set_four %></td>
-							<td>レップ: <%= exercise.rep_four %> 回</td>
-							<td></td>
-						<% end %>
-					</tr>
-				</tbody>
-			</table>
-			<%= exercise.exercise_note %>
+<div class="container">
+	<div class="row">
+		<div align="center" class="list-group-item list-group-item-info">
+			<%= @note.name %>
 		</div>
-	<% end %>
+		<%= form_for [@note, @exercise] do |f| %>
+			<div>
+				<label>種目名: </label>
+				<%= f.text_field :exercise_name, placeholder:"エクササイズ名", class:"form-control exercise-name-field" %>
+			</div>
+			<div id="one" class="flex-end">
+				<div>
+					<label>重量: </label>
+					<%= f.number_field :weight, step:"0.1", class:"form-control sm-field" %> kg
+				</div>
+				<div>
+					<label>セット: </label>
+					<%= f.number_field :set, class:"form-control sm-field" %>
+				</div>
+				<div>
+					<label>レップ数: </label>
+					<%= f.number_field :rep, class:"form-control sm-field" %> 回
+				</div>
+			</div>
+
+			<div class="add-btn">
+				<span class="add-btn-width"><button type=button class="list-group-item" id="add-set-two"><i class="fas fa-plus-circle"></i> セットを追加する</button></span>
+			</div>
+			<div id="two" class="hide-field">
+				<div>
+					<button type="button" class="cancel-two cancel-btn">ー</button>
+				</div>
+				<div>
+					<label>重量: </label>
+					<%= f.number_field :weight_two, step:"0.1", class:"weight_two form-control sm-field" %> kg
+				</div>
+				<div>
+					<label>セット: </label>
+					<%= f.number_field :set_two, class:"set_two form-control sm-field" %>
+				</div>
+				<div>
+					<label>レップ数: </label>
+					<%= f.number_field :rep_two, class:"rep_two form-control sm-field" %> 回
+				</div>
+			</div>
+
+			<div class="add-btn">
+				<span class="add-btn-width"><button type=button class="list-group-item" id="add-set-three"><i class="fas fa-plus-circle"></i> セットを追加する</button></span>
+			</div>
+			<div id="three" class="hide-field">
+				<div>
+					<button type="button" class="cancel-three cancel-btn">ー</button>
+				</div>
+				<div>
+					<label>重量: </label>
+					<%= f.number_field :weight_three, step:"0.1", class:"weight_three form-control sm-field" %> kg
+				</div>
+				<div>
+					<label>セット: </label>
+					<%= f.number_field :set_three, class:"set_three form-control sm-field" %>
+				</div>
+				<div>
+					<label>レップ数: </label>
+					<%= f.number_field :rep_three, class:"rep_three form-control sm-field" %> 回
+				</div>
+			</div>
+
+			<div class="add-btn">
+				<span class="add-btn-width"><button type=button class="list-group-item" id="add-set-four"><i class="fas fa-plus-circle"></i> セットを追加する</button></span>
+			</div>
+			<div id="four" class="hide-field">
+				<div>
+					<button type="button" class="cancel-four cancel-btn">ー</button>
+				</div>
+				<div>
+					<label>重量: </label>
+					<%= f.number_field :weight_four, step:"0.1", class:"weight_four form-control sm-field" %> kg
+				</div>
+				<div>
+					<label>セット: </label>
+					<%= f.number_field :set_four, class:"set_four form-control sm-field" %>
+				</div>
+				<div>
+					<label>レップ数: </label>
+					<%= f.number_field :rep_four, class:"rep_four form-control sm-field" %> 回
+				</div>
+			</div>
+
+			<div class="flex-end">
+				<p>ノート</p>
+				<%= f.text_area :exercise_note, placeholder:"コツやメモなど記入しましょう。", rows:"10", class:"form-control exercise-note" %>
+			</div>
+			<div class="flex-end">
+				<%= f.submit '作成', class:"btn btn-sm btn-primary" %>
+			</div>
+		<% end %>
+	</div>
+
+	<div class="row">
+		<div>
+			<% @exercises.each do |exercise| %>
+				<div>
+					<table>
+						<tbody>
+							<tr>
+								<td>エクササイズ名: <%= exercise.exercise_name %></td>
+								<td>重量: <%= exercise.weight %> kg</td>
+								<td>セット: <%= exercise.set %></td>
+								<td>レップ: <%= exercise.rep %> 回</td>
+								<td><%= link_to '編集', edit_note_exercise_path(exercise) %></td>
+							</tr>
+							<tr>
+								<% if exercise.weight_two.present? || exercise.set_two.present? || exercise.rep_two.present?  %>
+									<td></td>
+									<td>重量: <%= exercise.weight_two %> kg</td>
+									<td>セット: <%= exercise.set_two %></td>
+									<td>レップ: <%= exercise.rep_two %> 回</td>
+									<td></td>
+								<% end %>
+							</tr>
+							<tr>
+								<% if exercise.weight_three.present? || exercise.set_three.present? || exercise.rep_three.present?  %>
+									<td></td>
+									<td>重量: <%= exercise.weight_three %> kg</td>
+									<td>セット: <%= exercise.set_three %></td>
+									<td>レップ: <%= exercise.rep_three %> 回</td>
+									<td></td>
+								<% end %>
+							</tr>
+							<tr>
+								<% if exercise.weight_four.present? || exercise.set_four.present? || exercise.rep_four.present?  %>
+									<td></td>
+									<td>重量: <%= exercise.weight_four %> kg</td>
+									<td>セット: <%= exercise.set_four %></td>
+									<td>レップ: <%= exercise.rep_four %> 回</td>
+									<td></td>
+								<% end %>
+							</tr>
+						</tbody>
+					</table>
+					<div class="flex-end">
+						<%= exercise.exercise_note %>
+					</div>
+				</div>
+			<% end %>
+		</div>
+	</div>
 </div>
 
 <style>
@@ -106,8 +153,5 @@
 	}
 	td {
 		padding: 10px;
-	}
-	#two, #three, #four {
-		display: none;
 	}
 </style>
