@@ -88,7 +88,7 @@
 
 			<div class="flex-end">
 				<p>ノート</p>
-				<%= f.text_area :exercise_note, placeholder:"コツやメモなど記入しましょう。", rows:"10", class:"form-control exercise-note" %>
+				<%= f.text_area :exercise_note, placeholder:"コツやメモなど記入しましょう。", rows:"10", class:"form-control exercise-note-field" %>
 			</div>
 			<div class="flex-end">
 				<%= f.submit '作成', class:"btn btn-sm btn-primary" %>
@@ -146,12 +146,3 @@
 		</div>
 	</div>
 </div>
-
-<style>
-	div {
-		margin: 20px;
-	}
-	td {
-		padding: 10px;
-	}
-</style>

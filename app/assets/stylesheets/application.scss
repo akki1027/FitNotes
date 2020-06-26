@@ -80,7 +80,7 @@
 }
 // ------------------------------
 // exercise-note-field-----------
-.exercise-note {
+.exercise-note-field {
 	resize: none;
 	width: 550px;
 }
@@ -108,5 +108,48 @@
 .show-field, .add-btn, .flex-end {
 	display: flex;
 	justify-content: flex-end;
+}
+// ---------------------------------------
+
+// note-show------------------------------
+.note-exercise-table {
+	margin-top: 20px;
+}
+.note-exercise-table > tbody > tr> td {
+	min-width: 120px;
+	padding: 10px;
+}
+.note-exercise-table > tbody > tr> td:nth-child(1) {
+	min-width: 150px;
+	padding: 10px;
+}
+.note-show {
+	padding: 20px;
+	margin: 50px;
+	border: 1px solid #ddd;
+    border-radius: 20px;
+}
+.exercise-note {
+	min-height: 100px;
+	width: 550px;
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+}
+.edit-exercise-icon {
+	color: #72CA5C;
+}
+.edit-exercise-icon:hover {
+	color: #549344;
+}
+.edit-text {
+	display: none;
+	font-size: 12px;
+	border: 2px solid #72CA5C;
+	padding: 2px;
+	margin: 2px;
+}
+.edit-exercise-icon:hover .edit-text{
+	display: inline;
 }
 // ---------------------------------------
