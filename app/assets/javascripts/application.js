@@ -17,6 +17,31 @@
 //= require jquery
 //= require bootstrap-sprockets
 
+$(function() {
+	$('.form').on('change', 'input[type="file"]', function(event) {
+    	var file = event.target.files[0];
+        var reader = new FileReader();
+
+    if(file.type.indexOf("image") < 0){
+      return false;
+    }
+
+    reader.onload = (function(file) {
+    	return function(event) {
+        $(".preview").empty();
+
+        $(".preview").append($('<img>').attr({
+			src: event.target.result,
+			title: file.name,
+			width: "200px"
+            }));
+    	};
+    })(file);
+
+    reader.readAsDataURL(file);
+	});
+});
+
 $(function () {
 	$('.edit-note-name-icon').click(function() {
 		$('.edit-note-name-form').toggle();
