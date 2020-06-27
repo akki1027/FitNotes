@@ -8,31 +8,60 @@
 		</div>
 
 		<div class="flex-note">
-		<% @notes.each do |note| %>
-			<div class="each-note">
-				<div class="group">
-					<div class="list-item" align="center"><%= link_to note.name, note_path(note) %><%= link_to '編集する', edit_note_path(note), class:"btn btn-sm edit-note" %></div>
-					<% note.exercises.each do |exercise| %>
-					<div class="list-item" style="font-size: 10px;">
-						<div><%= exercise.exercise_name %><br>
-						<%= exercise.weight %> kg <%= exercise.set %> set <%= exercise.rep %> reps<br>
-						<%= exercise.weight_two %> kg <%= exercise.set_two %> set <%= exercise.rep_two %> reps<br>
-						<%= exercise.weight_three %> kg <%= exercise.set_three %> set <%= exercise.rep_three %> reps<br>
-						<%= exercise.weight_four %> kg <%= exercise.set_four %> set <%= exercise.rep_four %> reps<br></div></div>
-					<% end %>
+			<% @notes.each do |note| %>
+				<div class="each-note">
+					<div class="group">
+						<div class="list-group-item list-group-item-info" align="center">
+							<%= link_to note.name, note_path(note) %>
+						</div>
+						<div align="right">
+							<% if note.user == current_user %>
+								<%= link_to note_path(note), method: :delete, "data-confirm" => "削除しますか？" do %>
+									<i class="far fa-trash-alt delete-exercise-icon"></i>
+								<% end %>
+								<%= link_to edit_note_path(note) do %>
+									<i id="abc"class="fas fa-pencil-alt edit-exercise-icon"><span class="edit-text">編集する</span></i>
+								<% end %>
+							<% end %>
+						</div>
+						<% note.exercises.each do |exercise| %>
+							<div class="list-item" style="font-size: 10px;">
+								<p><strong>種目: <%= exercise.exercise_name %></strong></p>
+								<table>
+									<tbody>
+										<tr>
+											<td>重量: <%= exercise.weight %> kg</td>
+											<td>セット: <%= exercise.set %></td>
+											<td>レップ: <%= exercise.rep %> 回</td>
+										</tr>
+										<tr>
+											<% if exercise.weight_two.present? || exercise.set_two.present? || exercise.rep_two.present?  %>
+												<td>重量: <%= exercise.weight_two %> kg</td>
+												<td>セット: <%= exercise.set_two %></td>
+												<td>レップ: <%= exercise.rep_two %> 回</td>
+											<% end %>
+										</tr>
+										<tr>
+											<% if exercise.weight_three.present? || exercise.set_three.present? || exercise.rep_three.present?  %>
+												<td>重量: <%= exercise.weight_three %> kg</td>
+												<td>セット: <%= exercise.set_three %></td>
+												<td>レップ: <%= exercise.rep_three %> 回</td>
+											<% end %>
+										</tr>
+										<tr>
+											<% if exercise.weight_four.present? || exercise.set_four.present? || exercise.rep_four.present?  %>
+												<td>重量: <%= exercise.weight_four %> kg</td>
+												<td>セット: <%= exercise.set_four %></td>
+												<td>レップ: <%= exercise.rep_four %> 回</td>
+											<% end %>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						<% end %>
+					</div>
 				</div>
-			</div>
-		<% end %>
+			<% end %>
 		</div>
-	</div>
-</div>
-
-<div class="container">
-	<div class="row">
-		<%= form_for @note do |f| %>
-			<%= f.label :name %>
-			<%= f.text_field :name, autofocus: true, autocomplete: true, placeholder:"ノート名" %>
-			<%= f.submit '作成' %>
-		<% end %>
 	</div>
 </div>

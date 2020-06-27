@@ -1,26 +1,31 @@
 class ExercisesController < ApplicationController
-	# before_action :correct_user, only: []
-	def new
-	end
-
+	before_action :correct_user, only: [:edit, :update]
 	def create
 		note = Note.find(params[:note_id])
 		exercise = current_user.exercises.new(excercise_params)
 		exercise.note_id = note.id
 		if exercise.save
-			redirect_to my_notes_path(current_user)
+			redirect_to request.referrer || root_url
 		else
 			render 'notes/edit'
 		end
 	end
 
 	def edit
+		@note = Note.find(params[:note_id])
+		@exercise = Exercise.find(params[:id])
 	end
 
 	def update
+		exercise = Exercise.find(params[:id])
+		exercise.update(excercise_params)
+		redirect_to edit_note_path(exercise.note_id)
 	end
 
 	def destroy
+		exercise = Exercise.find(params[:id])
+		exercise.destroy
+		redirect_to request.referrer || root_url
 	end
 
 	private
@@ -33,7 +38,7 @@ class ExercisesController < ApplicationController
 
 	def correct_user
 		exercise = Exercise.find(params[:id])
-		if exercise.user != correct_user
+		if exercise.user != current_user
 			redirect_to root_path
 		end
 	end

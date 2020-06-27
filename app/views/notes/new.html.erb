@@ -1,0 +1,109 @@
+<div class="container">
+	<div class="row">
+		<div class="note-show">
+			<div align="center" class="list-group-item list-group-item-info z">
+				<%= form_for @note do |f| %>
+					<p>ノート名を入力してください</p>
+					<label>ノート名<span class="asterisk">*</span> : </label>
+					<%= f.text_field :name, autofocus: true, autocomplete: true, placeholder:"ノート名", class:"form-control exercise-name-field" %>
+					<%= f.submit '作成', class:"btn btn-sm btn-primary" %>
+				<% end %>
+			</div>
+
+			<div class="exercise-form translucent-form">
+				<div class="exercises-count" align="center">
+					種目数: <%= @note.exercises.count %>
+				</div>
+				<div>
+					<label>種目名<span class="asterisk">*</span> : </label>
+					<input placeholder="エクササイズ名" class="form-control exercise-name-field" type="text">
+				</div>
+				<div id="one" class="flex-end">
+					<div>
+						<label>重量: </label>
+						<input type="number" class="form-control sm-field"> kg
+					</div>
+					<div>
+						<label>セット: </label>
+						<input type="number" class="form-control sm-field">
+					</div>
+					<div>
+						<label>レップ数: </label>
+						<input type="number" class="form-control sm-field"> 回
+					</div>
+				</div>
+
+				<div class="add-btn">
+					<span class="add-btn-width"><button type=button class="list-group-item" id="add-set-two"><i class="fas fa-plus-circle"></i> セットを追加する</button></span>
+				</div>
+				<div id="two" class="hide-field">
+					<div>
+						<button type="button" class="cancel-two cancel-btn">ー</button>
+					</div>
+					<div>
+						<label>重量: </label>
+						<input type="number" class="form-control sm-field"> kg
+					</div>
+					<div>
+						<label>セット: </label>
+						<input type="number" class="form-control sm-field">
+					</div>
+					<div>
+						<label>レップ数: </label>
+						<input type="number" class="form-control sm-field"> 回
+					</div>
+				</div>
+
+				<div class="add-btn">
+					<span class="add-btn-width"><button type=button class="list-group-item" id="add-set-three"><i class="fas fa-plus-circle"></i> セットを追加する</button></span>
+				</div>
+				<div id="three" class="hide-field">
+					<div>
+						<button type="button" class="cancel-three cancel-btn">ー</button>
+					</div>
+					<div>
+						<label>重量: </label>
+						<input type="number" class="form-control sm-field"> kg
+					</div>
+					<div>
+						<label>セット: </label>
+						<input type="number" class="form-control sm-field">
+					</div>
+					<div>
+						<label>レップ数: </label>
+						<input type="number" class="form-control sm-field"> 回
+					</div>
+				</div>
+
+				<div class="add-btn">
+					<span class="add-btn-width"><button type=button class="list-group-item" id="add-set-four"><i class="fas fa-plus-circle"></i> セットを追加する</button></span>
+				</div>
+				<div id="four" class="hide-field">
+					<div>
+						<button type="button" class="cancel-four cancel-btn">ー</button>
+					</div>
+					<div>
+						<label>重量: </label>
+						<input type="number" class="form-control sm-field"> kg
+					</div>
+					<div>
+						<label>セット: </label>
+						<input type="number" class="form-control sm-field">
+					</div>
+					<div>
+						<label>レップ数: </label>
+						<input type="number" class="form-control sm-field"> 回
+					</div>
+				</div>
+
+				<div class="flex-end">
+					<p>ノート</p>
+					<textarea placeholder="コツやメモなど記入しましょう。" rows="10" class="form-control exercise-note-field" ></textarea>
+				</div>
+				<div class="flex-end">
+					<button class="btn btn-sm btn-primary">追加</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

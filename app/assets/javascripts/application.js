@@ -17,12 +17,15 @@
 //= require jquery
 //= require bootstrap-sprockets
 
-// $(function() {
-// 	$('li').click(function() {
-// 		$(this).addClass('active');
-// 	});
-// });
-
+$(function () {
+	$('.edit-note-name-icon').click(function() {
+		$('.edit-note-name-form').toggle();
+	});
+});
+// one------------------------------------------
+$(function() {
+	$('.set').val(1);
+});
 // two------------------------------------------
 $(function() {
 	$('#add-set-two').click(function() {

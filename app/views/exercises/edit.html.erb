@@ -1,0 +1,231 @@
+<div class="container">
+	<div class="row">
+		<div class="exercise-form">
+			<%= form_for [@note, @exercise] do |f| %>
+				<div>
+					<label>種目名<span class="asterisk">*</span> : </label>
+					<%= f.text_field :exercise_name, placeholder:"エクササイズ名", class:"form-control exercise-name-field" %>
+				</div>
+				<div id="one" class="flex-end">
+					<div>
+						<label>重量: </label>
+						<%= f.number_field :weight, step:"0.1", class:"form-control sm-field" %> kg
+					</div>
+					<div>
+						<label>セット: </label>
+						<%= f.number_field :set, class:"set form-control sm-field" %>
+					</div>
+					<div>
+						<label>レップ数: </label>
+						<%= f.number_field :rep, class:"form-control sm-field" %> 回
+					</div>
+				</div>
+<!-- two--------- -->
+				<% if @exercise.weight_two.blank? || @exercise.set_two.blank? || @exercise.rep_two.blank?  %>
+					<div class="add-btn">
+						<span class="add-btn-width"><button type=button class="list-group-item" id="add-set-two"><i class="fas fa-plus-circle"></i> セットを追加する</button></span>
+					</div>
+					<div id="two" class="hide-field">
+						<div>
+							<button type="button" class="cancel-two cancel-btn">ー</button>
+						</div>
+						<div>
+							<label>重量: </label>
+							<%= f.number_field :weight_two, step:"0.1", class:"weight_two form-control sm-field" %> kg
+						</div>
+						<div>
+							<label>セット: </label>
+							<%= f.number_field :set_two, class:"set_two form-control sm-field" %>
+						</div>
+						<div>
+							<label>レップ数: </label>
+							<%= f.number_field :rep_two, class:"rep_two form-control sm-field" %> 回
+						</div>
+					</div>
+				<% else %>
+					<div class="add-btn">
+						<span class="add-btn-width"><button type=button class="hide-field list-group-item" id="add-set-two"><i class="fas fa-plus-circle"></i> セットを追加する</button></span>
+					</div>
+					<div id="two" class="show-field">
+						<div>
+							<button type="button" class="cancel-two cancel-btn">ー</button>
+						</div>
+						<div>
+							<label>重量: </label>
+							<%= f.number_field :weight_two, step:"0.1", class:"weight_two form-control sm-field" %> kg
+						</div>
+						<div>
+							<label>セット: </label>
+							<%= f.number_field :set_two, class:"set_two form-control sm-field" %>
+						</div>
+						<div>
+							<label>レップ数: </label>
+							<%= f.number_field :rep_two, class:"rep_two form-control sm-field" %> 回
+						</div>
+					</div>
+				<% end %>
+<!-- three--------- -->
+				<% if @exercise.weight_two.blank? || @exercise.set_two.blank? || @exercise.rep_two.blank? %>
+					<div class="add-btn">
+						<span class="add-btn-width"><button type=button class="list-group-item hide-field" id="add-set-three"><i class="fas fa-plus-circle"></i> セットを追加する</button></span>
+					</div>
+					<div id="three" class="hide-field">
+						<div>
+							<button type="button" class="cancel-three cancel-btn">ー</button>
+						</div>
+						<div>
+							<label>重量: </label>
+							<%= f.number_field :weight_three, step:"0.1", class:"weight_three form-control sm-field" %> kg
+						</div>
+						<div>
+							<label>セット: </label>
+							<%= f.number_field :set_three, class:"set_three form-control sm-field" %>
+						</div>
+						<div>
+							<label>レップ数: </label>
+							<%= f.number_field :rep_three, class:"rep_three form-control sm-field" %> 回
+						</div>
+					</div>
+				<% elsif @exercise.weight_three.blank? || @exercise.set_three.blank? || @exercise.rep_three.blank?  %>
+					<div class="add-btn">
+						<span class="add-btn-width"><button type=button class="list-group-item" id="add-set-three"><i class="fas fa-plus-circle"></i> セットを追加する</button></span>
+					</div>
+					<div id="three" class="hide-field">
+						<div>
+							<button type="button" class="cancel-three cancel-btn">ー</button>
+						</div>
+						<div>
+							<label>重量: </label>
+							<%= f.number_field :weight_three, step:"0.1", class:"weight_three form-control sm-field" %> kg
+						</div>
+						<div>
+							<label>セット: </label>
+							<%= f.number_field :set_three, class:"set_three form-control sm-field" %>
+						</div>
+						<div>
+							<label>レップ数: </label>
+							<%= f.number_field :rep_three, class:"rep_three form-control sm-field" %> 回
+						</div>
+					</div>
+				<% else %>
+					<div class="add-btn">
+						<span class="add-btn-width"><button type=button class="list-group-item hide-field" id="add-set-three"><i class="fas fa-plus-circle"></i> セットを追加する</button></span>
+					</div>
+					<div id="three" class="show-field">
+						<div>
+							<button type="button" class="cancel-three cancel-btn">ー</button>
+						</div>
+						<div>
+							<label>重量: </label>
+							<%= f.number_field :weight_three, step:"0.1", class:"weight_three form-control sm-field" %> kg
+						</div>
+						<div>
+							<label>セット: </label>
+							<%= f.number_field :set_three, class:"set_three form-control sm-field" %>
+						</div>
+						<div>
+							<label>レップ数: </label>
+							<%= f.number_field :rep_three, class:"rep_three form-control sm-field" %> 回
+						</div>
+					</div>
+				<% end %>
+<!-- four--------- -->
+				<% if @exercise.weight_three.blank? || @exercise.set_three.blank? || @exercise.rep_three.blank? %>
+					<div class="add-btn">
+						<span class="add-btn-width"><button type=button class="list-group-item hide-field" id="add-set-four"><i class="fas fa-plus-circle"></i> セットを追加する</button></span>
+					</div>
+					<div id="four" class="hide-field">
+						<div>
+							<button type="button" class="cancel-four cancel-btn">ー</button>
+						</div>
+						<div>
+							<label>重量: </label>
+							<%= f.number_field :weight_four, step:"0.1", class:"weight_four form-control sm-field" %> kg
+						</div>
+						<div>
+							<label>セット: </label>
+							<%= f.number_field :set_four, class:"set_four form-control sm-field" %>
+						</div>
+						<div>
+							<label>レップ数: </label>
+							<%= f.number_field :rep_four, class:"rep_four form-control sm-field" %> 回
+						</div>
+					</div>
+				<% elsif @exercise.weight_four.blank? || @exercise.set_four.blank? || @exercise.rep_four.blank?  %>
+					<div class="add-btn">
+						<span class="add-btn-width"><button type=button class="list-group-item" id="add-set-four"><i class="fas fa-plus-circle"></i> セットを追加する</button></span>
+					</div>
+					<div id="four" class="hide-field">
+						<div>
+							<button type="button" class="cancel-four cancel-btn">ー</button>
+						</div>
+						<div>
+							<label>重量: </label>
+							<%= f.number_field :weight_four, step:"0.1", class:"weight_four form-control sm-field" %> kg
+						</div>
+						<div>
+							<label>セット: </label>
+							<%= f.number_field :set_four, class:"set_four form-control sm-field" %>
+						</div>
+						<div>
+							<label>レップ数: </label>
+							<%= f.number_field :rep_four, class:"rep_four form-control sm-field" %> 回
+						</div>
+					</div>
+				<% elsif @exercise.weight_four.present? || @exercise.set_four.present? || @exercise.rep_four.present?  %>
+					<div id="four" class="show-field">
+						<div>
+							<button type="button" class="cancel-four cancel-btn">ー</button>
+						</div>
+						<div>
+							<label>重量: </label>
+							<%= f.number_field :weight_four, step:"0.1", class:"weight_four form-control sm-field" %> kg
+						</div>
+						<div>
+							<label>セット: </label>
+							<%= f.number_field :set_four, class:"set_four form-control sm-field" %>
+						</div>
+						<div>
+							<label>レップ数: </label>
+							<%= f.number_field :rep_four, class:"rep_four form-control sm-field" %> 回
+						</div>
+					</div>
+				<% else %>
+					<div class="add-btn">
+						<span class="add-btn-width"><button type=button class="list-group-item" id="add-set-four"><i class="fas fa-plus-circle"></i> セットを追加する</button></span>
+					</div>
+					<div id="four" class="show-field">
+						<div>
+							<button type="button" class="cancel-four cancel-btn">ー</button>
+						</div>
+						<div>
+							<label>重量: </label>
+							<%= f.number_field :weight_four, step:"0.1", class:"weight_four form-control sm-field" %> kg
+						</div>
+						<div>
+							<label>セット: </label>
+							<%= f.number_field :set_four, class:"set_four form-control sm-field" %>
+						</div>
+						<div>
+							<label>レップ数: </label>
+							<%= f.number_field :rep_four, class:"rep_four form-control sm-field" %> 回
+						</div>
+					</div>
+				<% end %>
+
+				<div class="flex-end">
+					<p>ノート</p>
+					<%= f.text_area :exercise_note, placeholder:"コツやメモなど記入しましょう。", rows:"10", class:"form-control exercise-note-field" %>
+				</div>
+				<div class="flex-end">
+					<%= f.submit '更新', class:"btn btn-sm btn-primary" %>
+				</div>
+				<div class="add-btn add-new-exercise-btn">
+					<%= link_to note_path(@note) do %>
+						<span class="add-btn-width list-group-item">編集ページを終了する</span>
+					<% end %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>

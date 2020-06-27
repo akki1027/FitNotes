@@ -14,16 +14,18 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+// nav------------------------------------
 .username {
 	color: black;
 	text-decoration: none;
 }
-
 .nav-tabs {
 	display: flex;
     justify-content: center;
 }
+// ---------------------------------------
 
+// my-notes-------------------------------
 .add-new-note {
 	color: black;
 	background-color: #D5D7D4;
@@ -32,7 +34,6 @@
 .add-new-note:hover {
 	background-color: #B5B6B3;
 }
-
 .flex-note {
 	display: flex;
 	justify-content: space-around;
@@ -55,15 +56,16 @@
 	padding: 10px 15px;
 	border-bottom: 1px solid #ddd;
 }
-.edit-note {
-	padding: 3px;
-	color: black;
-	background-color: #D5D7D4;
+// ---------------------------------------
+
+// translucent-form-----------------------
+.translucent-form {
+	opacity: 0.3;
+	pointer-events: none;
 }
+// ---------------------------------------
 
-
-
-// form-field-size-----------------------
+// form-field-size------------------------
 .form-control {
 	display: inline-block;
 }
@@ -73,7 +75,15 @@
 // ---------------------------------------
 
 // exercise-form--------------------------
-
+.exercise-form {
+	margin: 20px;
+}
+.exercise-form div {
+	margin: 10px;
+}
+.asterisk {
+	color: red;
+}
 // exercise-name-field-----------
 .exercise-name-field {
 	width: 300px;
@@ -88,9 +98,6 @@
 // add-btn-----------------------
 .add-btn-width {
 	width: 550px;
-}
-#add-set-three, #add-set-four {
-	display: none;
 }
 // ------------------------------
 // cancel-btn--------------------
@@ -112,6 +119,30 @@
 // ---------------------------------------
 
 // note-show------------------------------
+.note-show {
+	padding: 20px;
+	margin: 50px;
+	border: 1px solid #ddd;
+    border-radius: 20px;
+}
+.edit-note-name {
+	display: none;
+}
+.edit-note-name-icon {
+	color: #72CA5C;
+}
+.edit-note-name-icon:hover .edit-note-name {
+	display: inline;
+}
+.edit-note-name-form {
+	display: none;
+}
+.exercises-count {
+	width: 150px;
+	padding: 10px;
+	margin: 10px;
+	border: 1px solid #ddd;
+}
 .note-exercise-table {
 	margin-top: 20px;
 }
@@ -123,12 +154,6 @@
 	min-width: 150px;
 	padding: 10px;
 }
-.note-show {
-	padding: 20px;
-	margin: 50px;
-	border: 1px solid #ddd;
-    border-radius: 20px;
-}
 .exercise-note {
 	min-height: 100px;
 	width: 550px;
@@ -136,20 +161,21 @@
 	border: 1px solid #ddd;
 	border-radius: 5px;
 }
+.delete-exercise-icon {
+	color: #FC5751;
+	margin-right: 5px;
+}
 .edit-exercise-icon {
 	color: #72CA5C;
-}
-.edit-exercise-icon:hover {
-	color: #549344;
 }
 .edit-text {
 	display: none;
 	font-size: 12px;
-	border: 2px solid #72CA5C;
-	padding: 2px;
-	margin: 2px;
 }
 .edit-exercise-icon:hover .edit-text{
 	display: inline;
+}
+.add-new-exercise-btn {
+	margin: 20px 0;
 }
 // ---------------------------------------
