@@ -25,38 +25,49 @@
 							<% end %>
 						</div>
 						<% note.exercises.each do |exercise| %>
-							<div class="list-item" style="font-size: 10px;">
-								<p><strong>種目: <%= exercise.exercise_name %></strong></p>
-								<table>
-									<tbody>
-										<tr>
-											<td>重量: <%= exercise.weight %> kg</td>
-											<td>セット: <%= exercise.set %></td>
-											<td>レップ: <%= exercise.rep %> 回</td>
-										</tr>
-										<tr>
-											<% if exercise.weight_two.present? || exercise.set_two.present? || exercise.rep_two.present?  %>
-												<td>重量: <%= exercise.weight_two %> kg</td>
-												<td>セット: <%= exercise.set_two %></td>
-												<td>レップ: <%= exercise.rep_two %> 回</td>
-											<% end %>
-										</tr>
-										<tr>
-											<% if exercise.weight_three.present? || exercise.set_three.present? || exercise.rep_three.present?  %>
-												<td>重量: <%= exercise.weight_three %> kg</td>
-												<td>セット: <%= exercise.set_three %></td>
-												<td>レップ: <%= exercise.rep_three %> 回</td>
-											<% end %>
-										</tr>
-										<tr>
-											<% if exercise.weight_four.present? || exercise.set_four.present? || exercise.rep_four.present?  %>
-												<td>重量: <%= exercise.weight_four %> kg</td>
-												<td>セット: <%= exercise.set_four %></td>
-												<td>レップ: <%= exercise.rep_four %> 回</td>
-											<% end %>
-										</tr>
-									</tbody>
-								</table>
+							<div class="list-item">
+								<div class="each-note-sm-view">
+									<div>
+										<p><strong>種目: <%= exercise.exercise_name %></strong></p>
+										<table>
+											<tbody>
+												<tr>
+													<td>重量: <%= exercise.weight %> kg</td>
+													<td>セット: <%= exercise.set %></td>
+													<td>レップ: <%= exercise.rep %> 回</td>
+												</tr>
+												<tr>
+													<% if exercise.weight_two.present? || exercise.set_two.present? || exercise.rep_two.present?  %>
+														<td>重量: <%= exercise.weight_two %> kg</td>
+														<td>セット: <%= exercise.set_two %></td>
+														<td>レップ: <%= exercise.rep_two %> 回</td>
+													<% end %>
+												</tr>
+												<tr>
+													<% if exercise.weight_three.present? || exercise.set_three.present? || exercise.rep_three.present?  %>
+														<td>重量: <%= exercise.weight_three %> kg</td>
+														<td>セット: <%= exercise.set_three %></td>
+														<td>レップ: <%= exercise.rep_three %> 回</td>
+													<% end %>
+												</tr>
+												<tr>
+													<% if exercise.weight_four.present? || exercise.set_four.present? || exercise.rep_four.present?  %>
+														<td>重量: <%= exercise.weight_four %> kg</td>
+														<td>セット: <%= exercise.set_four %></td>
+														<td>レップ: <%= exercise.rep_four %> 回</td>
+													<% end %>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<% if exercise.exercise_note.present? %>
+									<div class="flex-end">
+										<div class="exercise-sm-note">
+											<%= exercise.exercise_note %>
+										</div>
+									</div>
+								<% end %>
 							</div>
 						<% end %>
 					</div>

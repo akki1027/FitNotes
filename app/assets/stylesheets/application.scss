@@ -40,14 +40,29 @@
 	flex-wrap: wrap;
 }
 .each-note {
-	height: 300px;
+	height: 350px;
 	width: 300px;
 	margin: 10px 0;
 	border: 1px solid #ddd;
-	border-radius: 10%;
+	border-radius: 20px;
+	overflow: scroll;
 }
 .each-note:hover {
 	box-shadow: 0 0 10px #ddd;
+}
+.each-note-sm-view {
+	font-size: 10px;
+	display: flex;
+	justify-content: flex-end;
+}
+.exercise-sm-note {
+	font-size: 10px;
+	min-height: 40px;
+	width: 250px;
+	padding: 5px;
+	margin-top: 5px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
 }
 .group {
 	margin: 10px;
