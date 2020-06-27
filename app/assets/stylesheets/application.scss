@@ -15,10 +15,6 @@
 @import "bootstrap";
 
 // user------------------------------------
-.profile-photo {
-	border-radius: 50%;
-	object-fit: cover;
-}
 .user-form div {
 	margin: 20px 0;
 }
@@ -34,6 +30,32 @@
 .introduction-field {
 	resize: none;
 	width: 600px;
+}
+.user-profile {
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #ddd;
+}
+.user-profile div {
+	margin: 10px 0;
+}
+.profile-photo {
+	border-radius: 50%;
+	object-fit: cover;
+}
+.user-notes-count {
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	background-color: #D9F0F3;
+}
+.notes-list {
+	list-style: none;
+	margin: 10px
+}
+.notes-list li {
+	padding: 10px 0;
+	border-bottom: 1px solid #ddd;
 }
 // nav------------------------------------
 
