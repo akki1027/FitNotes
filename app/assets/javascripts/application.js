@@ -17,43 +17,43 @@
 //= require jquery
 //= require bootstrap-sprockets
 
-$(function() {
-	$('.form').on('change', 'input[type="file"]', function(event) {
-    	var file = event.target.files[0];
-        var reader = new FileReader();
+$(function () {
+	$('.form').on('change', 'input[type="file"]', function (event) {
+		var file = event.target.files[0];
+		var reader = new FileReader();
 
-    if(file.type.indexOf("image") < 0){
-      return false;
-    }
+		if (file.type.indexOf("image") < 0) {
+			return false;
+		}
 
-    reader.onload = (function(file) {
-    	return function(event) {
-        $(".preview").empty();
+		reader.onload = (function (file) {
+			return function (event) {
+				$(".preview").empty();
 
-        $(".preview").append($('<img>').attr({
-			src: event.target.result,
-			title: file.name,
-			width: "200px"
-            }));
-    	};
-    })(file);
+				$(".preview").append($('<img>').attr({
+					src: event.target.result,
+					title: file.name,
+					width: "200px"
+				}));
+			};
+		})(file);
 
-    reader.readAsDataURL(file);
+		reader.readAsDataURL(file);
 	});
 });
 
 $(function () {
-	$('.edit-note-name-icon').click(function() {
+	$('.edit-note-name-icon').click(function () {
 		$('.edit-note-name-form').toggle();
 	});
 });
 // one------------------------------------------
-$(function() {
+$(function () {
 	$('.set').val(1);
 });
 // two------------------------------------------
-$(function() {
-	$('#add-set-two').click(function() {
+$(function () {
+	$('#add-set-two').click(function () {
 		$('#two').addClass('show-field');
 		$('#two').removeClass('hide-field');
 		$('.set_two').val(2);
@@ -61,8 +61,8 @@ $(function() {
 		$('#add-set-three').show();
 	});
 });
-$(function() {
-	$('.cancel-two').click(function() {
+$(function () {
+	$('.cancel-two').click(function () {
 		$("#two").addClass('hide-field');
 		$("#two").removeClass('show-field')
 		$("#three").addClass('hide-field');
@@ -84,8 +84,8 @@ $(function() {
 	});
 });
 // three----------------------------------------
-$(function() {
-	$('#add-set-three').click(function() {
+$(function () {
+	$('#add-set-three').click(function () {
 		$('#three').addClass('show-field');
 		$('#three').removeClass('hide-field');
 		$('.set_three').val(3);
@@ -93,8 +93,8 @@ $(function() {
 		$('#add-set-four').show();
 	});
 });
-$(function() {
-	$('.cancel-three').click(function() {
+$(function () {
+	$('.cancel-three').click(function () {
 		$("#three").addClass('hide-field');
 		$("#three").removeClass('show-field');
 		$('#four').addClass('hide-field');
@@ -110,16 +110,16 @@ $(function() {
 	});
 });
 // four-----------------------------------------
-$(function() {
-	$('#add-set-four').click(function() {
+$(function () {
+	$('#add-set-four').click(function () {
 		$('#four').addClass('show-field');
 		$('#four').removeClass('hide-field');
 		$('.set_four').val(4);
 		$(this).hide();
 	});
 });
-$(function() {
-	$('.cancel-four').click(function() {
+$(function () {
+	$('.cancel-four').click(function () {
 		$("#four").addClass('hide-field');
 		$("#four").removeClass('show-field');
 		$('#add-set-four').show();

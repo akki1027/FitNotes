@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 	root 'homes#top'
+	get 'stopwatch' => 'homes#stopwatch'
 	devise_for :users
 	resources :users, only: [:index, :show, :edit, :update]
 	get 'users/:id/my_notes' => 'users#my_notes', as: 'my_notes'
