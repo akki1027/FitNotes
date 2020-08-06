@@ -7,12 +7,12 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/ruby:2.5.7-node-browsers
-      executor: ruby/default
         environment:
           BUNDLER_VERSION: 2.1.4
           RAILS_ENV: test
           PGHOST: 127.0.0.1
           PGUSER: postgres
+      executor: ruby/default
     working_directory: ~/FitNotes
     steps:
       - checkout
