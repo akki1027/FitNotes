@@ -18,6 +18,7 @@ jobs:
       - run:
           name: Which bundler?
           command: bundle -v
+            gem install bundler:2.1.4
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "Gemfile.lock" }}
