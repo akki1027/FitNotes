@@ -12,7 +12,6 @@ jobs:
           RAILS_ENV: test
           PGHOST: 127.0.0.1
           PGUSER: postgres
-    executor: ruby/default
     working_directory: ~/FitNotes
     steps:
       - checkout
