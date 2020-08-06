@@ -17,7 +17,8 @@ jobs:
       - checkout
       - run:
           name: Which bundler?
-          command: gem install bundler -v 2.1.4
+          command: |
+            gem install bundler -v 2.1.4
             bundle -v
       - restore_cache:
           keys:
