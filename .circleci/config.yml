@@ -42,13 +42,18 @@ jobs:
       #     command: bundle exec rubocop
       # - run: bundle exec rake db:create
       # - run: bundle exec rake db:schema:load
-      - run:
-          name: DB の待機
-          command: dockerize -wait tcp://127.0.0.1:5432 -timeout 2m
 
-      - run:
-          name: データベースのセットアップ
-          command: bin/rails db:schema:load --trace
+      - run: mv ./config/database.yml.ci ./config/database.yml
+      - run: bundle exec rake db:create RAILS_ENV=test
+      - run: bundle exec rake db:migrate RAILS_ENV=test
+
+      # - run:
+      #     name: DB の待機
+      #     command: dockerize -wait tcp://127.0.0.1:5432 -timeout 1m
+
+      # - run:
+      #     name: データベースのセットアップ
+      #     command: bin/rails db:schema:load --trace
 
       - run:
           name: Rspec
