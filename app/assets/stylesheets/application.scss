@@ -17,6 +17,8 @@
 :root {
 	--main-color: #3a546b;
 	--second-color: #565d63;
+	--width-custom: 20px 30px 30px 30px;
+	--border-color: #ddd;
 }
 body {
 	margin: 0 auto;
@@ -105,8 +107,8 @@ footer h5 {
 
 // user-show
 .user-show-profile {
-	padding: 20px 30px 30px 30px;
-	border-bottom: 1px solid #ddd;
+	padding: var(--width-custom);
+	border-bottom: 1px solid var(--border-color);
 }
 .user-show-profile div {
 	margin-bottom: 15px;
@@ -145,11 +147,11 @@ footer h5 {
 	border: 1px solid white !important;
 }
 .user-show-notes {
-	padding: 20px 30px 30px 30px;
+	padding: var(--width-custom);
 }
 .user-notes-count {
 	padding: 10px;
-	border: 1px solid #ddd;
+	border: 1px solid var(--border-color);
 	border-radius: 5px;
 	background-color: #D9F0F3;
 	display: inline-block;
@@ -160,7 +162,7 @@ footer h5 {
 }
 .notes-list li {
 	padding: 10px 0;
-	border-bottom: 1px solid #ddd;
+	border-bottom: 1px solid var(--border-color);
 }
 // user-form
 .user-form div {
@@ -175,53 +177,86 @@ footer h5 {
 .introduction-field {
 	resize: none;
 }
-// my-notes-------------------------------
-.add-new-note {
-	color: black;
-	background-color: #D5D7D4;
-	float: right;
+// my-notes
+.mynotes-nav {
+	margin-top: 20px;
+	padding: var(--width-custom);
+	border-bottom: 1px solid var(--border-color);
+	display: flex;
+	justify-content: space-between;
 }
-.add-new-note:hover {
-	background-color: #B5B6B3;
+.add-new-note-btn {
+	color: var(--main-color);
+	border-radius: 20px;
+	border: 1px solid var(--main-color);
 }
-.flex-note {
+.add-new-note-btn:hover {
+	color: white;
+	background: var(--main-color);
+	border: 1px solid white;
+}
+
+// gridに変更したい
+.mynotes-main {
+	padding: var(--width-custom);
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
 }
 .each-note {
-	height: 350px;
-	width: 300px;
+	height: 450px;
+	width: 400px;
 	margin: 10px 0;
-	border: 1px solid #ddd;
 	border-radius: 20px;
+	border: 1px solid var(--border-color);
 	overflow: scroll;
 }
 .each-note:hover {
 	box-shadow: 0 0 10px #ddd;
 }
-.group {
-	margin: 10px;
+.each-note-title {
+	font-size: 16px;
+	text-align: center;
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid var(--border-color);
+	background: #d7847e;
 }
+.each-note-title a {
+	color: white;
+}
+.actions {
+	position: absolute !important;
+	left: 118px;
+	bottom: -15px;
+	background: transparent;
+	border: none;
+	border-radius: 50%;
+}
+.dropdown-menu {
+	min-width: 100px !important;
+	text-align: center !important;
+	top: 13px !important;
+	left: 52px !important;
+}
+
 .list-item {
-	padding: 10px 15px;
+	padding: 10px 25px;
 	border-bottom: 1px solid #ddd;
+	font-size: 13px;
 }
-.each-note-sm-view {
-	font-size: 10px;
-	display: flex;
-	justify-content: flex-end;
+.list-item > table {
+	margin-left: 10px;
 }
 .exercise-sm-note {
-	font-size: 10px;
+	margin-left: 10px;
 	min-height: 40px;
 	width: 250px;
 	padding: 5px;
 	margin-top: 5px;
-	border: 1px solid #ddd;
 	border-radius: 5px;
+	border: 1px solid var(--border-color);
 }
-// ---------------------------------------
 
 // translucent-form-----------------------
 .translucent-form {
@@ -325,13 +360,7 @@ footer h5 {
 	border: 1px solid #ddd;
 	border-radius: 5px;
 }
-.delete-exercise-icon {
-	color: #FC5751;
-	margin-right: 5px;
-}
-.edit-exercise-icon {
-	color: #72CA5C;
-}
+
 .edit-text {
 	display: none;
 	font-size: 12px;
@@ -339,6 +368,7 @@ footer h5 {
 .edit-exercise-icon:hover .edit-text{
 	display: inline;
 }
+
 .add-new-exercise-btn {
 	margin: 20px 0;
 }

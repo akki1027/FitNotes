@@ -1,78 +1,80 @@
-<div class="container">
-	<div class="row">
-		<div class="page-header">
-			<h5><span class="">ワークアウトノート 一覧<span></5>
+<section>
+	<nav></nav>
+	<main>
+		<div class="mynotes-nav">
+			<span>ワークアウトノート一覧 ( <%= @notes.count %> )</span>
 			<%= link_to new_note_path do %>
-				<span class="add-new-note btn btn-sm"><i class="fas fa-plus-circle"></i> ワークアウトノートの新規作成</span>
+				<span class="btn add-new-note-btn">ワークアウトノートの新規作成</span>
 			<% end %>
 		</div>
 
-		<div class="flex-note">
+		<div class="mynotes-main">
 			<% @notes.each do |note| %>
 				<div class="each-note">
-					<div class="group">
-						<div class="list-group-item list-group-item-info" align="center">
-							<%= link_to note.name, note_path(note) %>
-						</div>
-						<div align="right">
-							<% if note.user == current_user %>
-								<%= link_to note_path(note), method: :delete, "data-confirm" => "削除しますか？" do %>
-									<i class="far fa-trash-alt delete-exercise-icon"></i>
-								<% end %>
-								<%= link_to edit_note_path(note) do %>
-									<i id="abc"class="fas fa-pencil-alt edit-exercise-icon"><span class="edit-text">編集する</span></i>
-								<% end %>
-							<% end %>
-						</div>
-						<% note.exercises.each do |exercise| %>
-							<div class="list-item">
-								<div class="each-note-sm-view">
-									<div>
-										<p><strong>種目: <%= exercise.exercise_name %></strong></p>
-										<table>
-											<tbody>
-												<tr>
-													<td>重量: <%= exercise.weight %> kg</td>
-													<td>セット: <%= exercise.set %></td>
-													<td>レップ: <%= exercise.rep %> 回</td>
-												</tr>
-												<tr>
-													<% if exercise.weight_two.present? || exercise.set_two.present? || exercise.rep_two.present?  %>
-														<td>重量: <%= exercise.weight_two %> kg</td>
-														<td>セット: <%= exercise.set_two %></td>
-														<td>レップ: <%= exercise.rep_two %> 回</td>
-													<% end %>
-												</tr>
-												<tr>
-													<% if exercise.weight_three.present? || exercise.set_three.present? || exercise.rep_three.present?  %>
-														<td>重量: <%= exercise.weight_three %> kg</td>
-														<td>セット: <%= exercise.set_three %></td>
-														<td>レップ: <%= exercise.rep_three %> 回</td>
-													<% end %>
-												</tr>
-												<tr>
-													<% if exercise.weight_four.present? || exercise.set_four.present? || exercise.rep_four.present?  %>
-														<td>重量: <%= exercise.weight_four %> kg</td>
-														<td>セット: <%= exercise.set_four %></td>
-														<td>レップ: <%= exercise.rep_four %> 回</td>
-													<% end %>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								</div>
-								<% if exercise.exercise_note.present? %>
-									<div class="flex-end">
-										<div class="exercise-sm-note">
-											<%= exercise.exercise_note %>
-										</div>
-									</div>
-								<% end %>
-							</div>
+					<div class="each-note-title">
+						<%= link_to note.name, note_path(note) %>
+						<% if note.user == current_user %>
+							<span class="btn-group" role="group">
+								<button type="button" class="btn dropdown-toggle actions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<li>
+										<%= link_to edit_note_path(note) do %>
+											<i id="abc"class="fas fa-pencil-alt"></i> 編集する
+										<% end %>
+									</li>
+									<li>
+										<%= link_to note_path(note), method: :delete, "data-confirm" => "削除しますか？" do %>
+											<i class="far fa-trash-alt"></i> 削除する
+										<% end %>
+									</li>
+								</ul>
+							</span>
 						<% end %>
 					</div>
+					<% note.exercises.each do |exercise| %>
+						<div class="list-item">
+							<p><strong>種目: <%= exercise.exercise_name %></strong></p>
+							<table>
+								<tbody>
+									<tr>
+										<td>重量: <%= exercise.weight %> kg</td>
+										<td>セット: <%= exercise.set %></td>
+										<td>レップ: <%= exercise.rep %> 回</td>
+									</tr>
+									<tr>
+										<% if exercise.weight_two.present? || exercise.set_two.present? || exercise.rep_two.present?  %>
+											<td>重量: <%= exercise.weight_two %> kg</td>
+											<td>セット: <%= exercise.set_two %></td>
+											<td>レップ: <%= exercise.rep_two %> 回</td>
+										<% end %>
+									</tr>
+									<tr>
+										<% if exercise.weight_three.present? || exercise.set_three.present? || exercise.rep_three.present?  %>
+											<td>重量: <%= exercise.weight_three %> kg</td>
+											<td>セット: <%= exercise.set_three %></td>
+											<td>レップ: <%= exercise.rep_three %> 回</td>
+										<% end %>
+									</tr>
+									<tr>
+										<% if exercise.weight_four.present? || exercise.set_four.present? || exercise.rep_four.present?  %>
+											<td>重量: <%= exercise.weight_four %> kg</td>
+											<td>セット: <%= exercise.set_four %></td>
+											<td>レップ: <%= exercise.rep_four %> 回</td>
+										<% end %>
+									</tr>
+								</tbody>
+							</table>
+							<% if exercise.exercise_note.present? %>
+								<div class="exercise-sm-note">
+									<%= exercise.exercise_note %>
+								</div>
+							<% end %>
+						</div>
+					<% end %>
 				</div>
 			<% end %>
 		</div>
-	</div>
-</div>
+	</main>
+</section>
