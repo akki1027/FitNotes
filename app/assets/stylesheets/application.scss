@@ -14,7 +14,155 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-// user------------------------------------
+:root {
+	--main-color: #3a546b;
+	--second-color: #565d63;
+}
+body {
+	margin: 0 auto;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+header {
+	height: 150px;
+	background-color: #FFFFEE;
+}
+section {
+	min-height: 90vh;
+	display: flex;
+	flex: 1;
+}
+nav {
+	width: 200px;
+	background-color: #EEFFFF;
+}
+main {
+	flex: 1;
+	background-color: #FFEEFF;
+}
+footer {
+	margin-top: 50px;
+}
+footer > div:first-child {
+	background: var(--second-color);
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	color: white;
+	font-size: 14px;
+}
+footer > div:nth-of-type(2) {
+	background: var(--main-color);
+	height: 400px;
+	color: white;
+}
+footer h2 {
+	margin-top: 50px;
+	margin-bottom: 40px;
+	line-height: 50px;
+}
+footer h5 {
+	line-height: 30px;
+}
+.copyright {
+	border-top: 3px solid white;
+	margin-top: 120px;
+	padding-top: 30px;
+}
+// nav
+.nav-custom {
+	padding: 20px 50px;
+	font-size: 15px;
+	border-bottom: 2px solid #eee;
+	background: var(--main-color);
+}
+.nav-list li {
+	float: left;
+}
+.nav-list li a {
+	color: white;
+}
+.nav-list li a:hover {
+	color: white;
+	background: transparent;
+	border: 1px solid white;
+	border-radius: 3px;
+}
+.username {
+	color: black;
+	text-decoration: none;
+	font-weight: bold;
+}
+// side-nav
+// .side-nav {
+// 	list-style: none;
+// 	font-size: 17px;
+// }
+// .side-nav li {
+// 	margin-top: 50px;
+// }
+
+// user-show
+.user-show-profile {
+	padding: 20px 30px 30px 30px;
+	border-bottom: 1px solid #ddd;
+}
+.user-show-profile div {
+	margin-bottom: 15px;
+}
+.user-show-row {
+	display: flex;
+	flex-direction: row;
+}
+.profile-photo {
+	border-radius: 50%;
+	object-fit: cover;
+}
+.user-btns {
+	list-style: none;
+	margin-top: 15px;
+}
+.user-btns li {
+	float: left;
+	margin-right: 10px;
+}
+.user-btns li a {
+	color: black;
+}
+.user-btns li a:hover {
+	border-radius: 20px;
+	border: 1px solid black;
+}
+.edit-profile {
+	color: var(--main-color) !important;
+	border-radius: 20px;
+	border: 1px solid var(--main-color);
+}
+.edit-profile:hover {
+	color: white !important;
+	background: var(--main-color);
+	border: 1px solid white !important;
+}
+.user-show-notes {
+	padding: 20px 30px 30px 30px;
+}
+.user-notes-count {
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	background-color: #D9F0F3;
+	display: inline-block;
+}
+.notes-list {
+	list-style: none;
+	margin: 10px
+}
+.notes-list li {
+	padding: 10px 0;
+	border-bottom: 1px solid #ddd;
+}
+// user-form
 .user-form div {
 	margin: 20px 0;
 }
@@ -31,45 +179,6 @@
 	resize: none;
 	width: 600px;
 }
-.user-profile {
-	padding-bottom: 10px;
-	margin-bottom: 20px;
-	border-bottom: 1px solid #ddd;
-}
-.user-profile div {
-	margin: 10px 0;
-}
-.profile-photo {
-	border-radius: 50%;
-	object-fit: cover;
-}
-.user-notes-count {
-	padding: 10px;
-	border: 1px solid #ddd;
-	border-radius: 5px;
-	background-color: #D9F0F3;
-}
-.notes-list {
-	list-style: none;
-	margin: 10px
-}
-.notes-list li {
-	padding: 10px 0;
-	border-bottom: 1px solid #ddd;
-}
-// nav------------------------------------
-
-// nav------------------------------------
-.username {
-	color: black;
-	text-decoration: none;
-}
-.nav-tabs {
-	display: flex;
-    justify-content: center;
-}
-// ---------------------------------------
-
 // my-notes-------------------------------
 .add-new-note {
 	color: black;
@@ -176,7 +285,6 @@
 	display: flex;
 	justify-content: flex-end;
 }
-// ---------------------------------------
 
 // note-show------------------------------
 .note-show {
@@ -238,9 +346,8 @@
 .add-new-exercise-btn {
 	margin: 20px 0;
 }
-// ---------------------------------------
 
-// timer----------------------------------
+// timer
 .timer-main {
   margin: 20px auto;
 	width: 50vw;
@@ -273,4 +380,16 @@
 
 .inactive {
   opacity: 0.6;
+}
+
+@media screen and (max-width:900px) {
+	body, nav {
+		width: 100%;
+	}
+	div {
+		flex-direction: column;
+	}
+	main {
+		order: -1;
+	}
 }

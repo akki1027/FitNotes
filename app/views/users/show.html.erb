@@ -1,26 +1,39 @@
-<div class="container">
-	<div class="row">
-		<div class="user-profile">
+<section>
+	<nav>
+		<%= render 'homes/sidenav' %>
+	</nav>
+	<main>
+		<div class="user-show-profile">
 			<div>
-				<%= attachment_image_tag @user, :profile_photo, format: 'jpg', fallback: "user_no_image.png", size: "60x60", class:"profile-photo" %>
+				<div class="user-show-row">
+					<%= attachment_image_tag @user, :profile_photo, format: 'jpg', fallback: "user_no_image.png", size: "60x60", class:"profile-photo" %>
+					<ul class="user-btns">
+						<li><%= link_to 'ノート', root_path, class:"btn" %></li>
+						<li><%= link_to 'フォロワー', root_path, class:"btn" %></li>
+						<li><%= link_to 'フォロー中', root_path, class:"btn" %></li>
+						<% if @user == current_user %>
+							<li><%= link_to 'プロフィールを編集する', edit_user_path(@user), class:"btn edit-profile" %></li>
+						<% end %>
+					</ul>
+				</div>
 			</div>
-			<div>
-				<strong><%= @user.name %></strong>
+			<div class="username">
+				<%= @user.name %>
 			</div>
 			<div>
 				<%= @user.introduction %>
 			</div>
-			<% if @user == current_user %>
-				<%= link_to 'プロフィールを編集', edit_user_path(@user) %>
-			<% end %>
 		</div>
-		<span class="user-notes-count">
-			<i class="far fa-edit"></i> ワークアウトノート数: <%= @user.notes.count %>
-		</span>
-		<ul class="notes-list">
-			<% @user.notes.each do |note| %>
-			<li><i class="far fa-file-alt"></i> <%= link_to note.name, note_path(note) %></li>
-			<% end %>
-		</ul>
-	</div>
-</div>
+
+		<div class="user-show-notes">
+			<div class="user-notes-count">
+				<i class="far fa-edit"></i> ワークアウトノート ( <%= @user.notes.count %> )
+			</div>
+			<ul class="notes-list">
+				<% @user.notes.each do |note| %>
+				<li><i class="far fa-file-alt"></i> <%= link_to note.name, note_path(note) %></li>
+				<% end %>
+			</ul>
+		</div>
+	</main>
+</section>
