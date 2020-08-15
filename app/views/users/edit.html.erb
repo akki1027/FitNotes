@@ -1,23 +1,22 @@
 <div class="container">
-	<div class="row">
-		<div class="user-form">
-			<%= form_for @user do |f| %>
-				<div class="form">
-					<%= f.label :profile_photo, 'プロフィール画像を追加する' %>
-					<div class="preview preview-profile-photo"></div>
-					<%= f.attachment_field :profile_photo %>
-				</div>
-				<div>
-					<%= f.label :name, 'ユーザーネーム' %><br>
-					<%= f.text_field :name, autofocus: true, placeholder:"ユーザーネーム", class:"form-control user-name-field" %>
-				<div>
-					<%= f.label :introduction, '自己紹介' %><br>
-					<%= f.text_area :introduction, placeholder:"自己紹介", rows:"10", class:"form-control introduction-field" %>
-				</div>
-				<div>
-					<%= f.submit '更新', class:"btn btn-sm btn-primary" %>
-				</div>
-			<% end %>
-		</div>
+	<div class="user-form">
+		<%= form_for @user do |f| %>
+			<div>
+				<%= f.label :profile_photo, 'プロフィール画像を追加する' %>
+				<div class="preview preview-profile-photo"></div>
+				<%= f.attachment_field :profile_photo %>
+			</div>
+			<div>
+				<%= f.label :name, 'ユーザーネーム' %><br>
+				<%= f.text_field :name, autofocus: true, placeholder:"ユーザーネーム", class:"form-control" %>
+			</div>
+			<div>
+				<%= f.label :introduction, '自己紹介' %><br>
+				<%= f.text_area :introduction, placeholder:"自己紹介", rows:"15", class:"form-control introduction-field" %>
+			</div>
+			<div>
+				<%= f.submit '更新する', class:"btn btn-primary" %>
+			</div>
+		<% end %>
 	</div>
 </div>
