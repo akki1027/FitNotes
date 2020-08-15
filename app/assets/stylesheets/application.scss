@@ -49,15 +49,10 @@ body {
 section {
 	min-height: 90vh;
 	display: flex;
-	flex: 1;
 }
 nav {
 	width: 200px;
 	background-color: #EEFFFF;
-}
-main {
-	flex: 1;
-	background-color: #FFEEFF;
 }
 footer > div:first-child {
 	background: var(--second-color);
@@ -196,6 +191,7 @@ footer h5 {
 	border-radius: 20px;
 	border: 1px solid var(--border-color);
 	overflow: scroll;
+	background: white;
 }
 .each-note:hover {
 	box-shadow: 0 0 10px #ddd;
@@ -206,10 +202,6 @@ footer h5 {
 	height: 50px;
 	line-height: 50px;
 	border-bottom: 1px solid var(--border-color);
-	background: var(--note-title-color);
-}
-.each-note-title a {
-	color: white;
 }
 .actions {
 	position: absolute !important;
@@ -291,10 +283,6 @@ footer h5 {
 	justify-content: flex-end;
 }
 
-
-
-
-
 // notes
 .note {
 	margin: 50px auto;
@@ -326,11 +314,6 @@ footer h5 {
 .exercise-name > span > :first-child {
 	margin-right: 15px;
 }
-// .actions-2 {
-// 	background: transparent;
-// 	border: none;
-// 	border-radius: 50%;
-// }
 .note-exercise-table {
 	font-size: 15px;
 	margin-left: 60px;
@@ -344,13 +327,6 @@ footer h5 {
 	background: var(--main-color);
 	color: white;
 }
-
-
-
-
-
-
-
 
 .edit-note-name-form {
 	display: none;
@@ -383,17 +359,9 @@ footer h5 {
 	margin-right: 30px;
 }
 
-
-
 .add-new-exercise-btn {
 	margin: 20px 0;
 }
-
-
-
-// 削除する
-// .edit-text
-// .edit-exercise-icon
 
 // timer
 .timer-main {
@@ -402,14 +370,12 @@ footer h5 {
 	padding: 15px;
 	text-align: center;
 }
-
 #timer {
 	height: 120px;
 	line-height: 120px;
 	font-size: 60px;
 	margin-bottom: 15px;
 }
-
 .timer-btn {
   width: 80px;
   height: 80px;
@@ -420,24 +386,23 @@ footer h5 {
 	border-radius: 50%;
 	border: 1px solid black;
 }
-
 .timer-btns {
   display: flex;
   justify-content: space-around;
 }
-
 .inactive {
   opacity: 0.6;
 }
 
 @media screen and (max-width:900px) {
-	body, nav {
+	body {
 		width: 100%;
 	}
-	div {
+	section {
 		flex-direction: column;
 	}
-	main {
-		order: -1;
+	nav {
+		width: 100%;
+		min-height: 100px;
 	}
 }

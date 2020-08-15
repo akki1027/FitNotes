@@ -1,48 +1,49 @@
 <div class="container">
-	<div class="row">
-		<div class="note-show">
-			<div align="center" class="list-group-item list-group-item-info">
+		<div class="note">
+			<div class="new-note-title">
 				<%= @note.name %>
 			</div>
+
 			<div class="exercises-count" align="center">
 				種目数: <%= @note.exercises.count %>
 			</div>
 
 			<% @exercises.each do |exercise| %>
+				<div class="exercise-name">
+					<p>種目: <%= exercise.exercise_name %></p>
+				</div>
 				<div class="flex-end">
 					<table class="note-exercise-table">
 						<tbody>
 							<tr>
-								<td><strong>種目: <%= exercise.exercise_name %></strong></td>
+								<td>重量</td>
+								<td>セット</td>
+								<td>レップ</td>
 							</tr>
 							<tr>
-								<td></td>
-								<td>重量: <%= exercise.weight %> kg</td>
-								<td>セット: <%= exercise.set %></td>
-								<td>レップ: <%= exercise.rep %> 回</td>
+								<td><%= exercise.weight %> kg</td>
+								<td><%= exercise.set %></td>
+								<td><%= exercise.rep %> 回</td>
 							</tr>
 							<tr>
 								<% if exercise.weight_two.present? || exercise.set_two.present? || exercise.rep_two.present?  %>
-									<td></td>
-									<td>重量: <%= exercise.weight_two %> kg</td>
-									<td>セット: <%= exercise.set_two %></td>
-									<td>レップ: <%= exercise.rep_two %> 回</td>
+									<td><%= exercise.weight_two %> kg</td>
+									<td><%= exercise.set_two %></td>
+									<td><%= exercise.rep_two %> 回</td>
 								<% end %>
 							</tr>
 							<tr>
 								<% if exercise.weight_three.present? || exercise.set_three.present? || exercise.rep_three.present?  %>
-									<td></td>
-									<td>重量: <%= exercise.weight_three %> kg</td>
-									<td>セット: <%= exercise.set_three %></td>
-									<td>レップ: <%= exercise.rep_three %> 回</td>
+									<td><%= exercise.weight_three %> kg</td>
+									<td><%= exercise.set_three %></td>
+									<td><%= exercise.rep_three %> 回</td>
 								<% end %>
 							</tr>
 							<tr>
 								<% if exercise.weight_four.present? || exercise.set_four.present? || exercise.rep_four.present?  %>
-									<td></td>
-									<td>重量: <%= exercise.weight_four %> kg</td>
-									<td>セット: <%= exercise.set_four %></td>
-									<td>レップ: <%= exercise.rep_four %> 回</td>
+									<td><%= exercise.weight_four %> kg</td>
+									<td><%= exercise.set_four %></td>
+									<td><%= exercise.rep_four %> 回</td>
 								<% end %>
 							</tr>
 						</tbody>
@@ -56,11 +57,13 @@
 					</div>
 				<% end %>
 			<% end %>
-			<div class="add-btn add-new-exercise-btn">
-				<%= link_to edit_note_path(@note) do %>
-					<span class="add-btn-width list-group-item">ノートを編集する</span>
-				<% end %>
+			<div class="exercise-form">
+				<div class="add-btn add-new-exercise-btn ">
+					<%= link_to edit_note_path(@note) do %>
+						<span class="add-btn-width list-group-item">ノートを編集する</span>
+					<% end %>
+				</div>
 			</div>
 		</div>
-	</div>
+
 </div>
