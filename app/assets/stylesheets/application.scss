@@ -43,8 +43,8 @@ body {
 .nav-list li a:hover {
 	color: white;
 	background: transparent;
+	border-radius: 20px;
 	border: 1px solid white;
-	border-radius: 3px;
 }
 section {
 	min-height: 90vh;
@@ -64,6 +64,20 @@ footer > div:first-child {
 	text-align: center;
 	color: white;
 	font-size: 14px;
+}
+footer > div:first-child:hover {
+	opacity: 0.9;
+}
+.page-top {
+	color: white;
+	text-decoration: none !important;
+}
+.page-top:hover {
+	color: white;
+	text-decoration: underline !important;
+}
+.page-top:visited {
+	color: white;
 }
 footer > div:nth-of-type(2) {
 	background: var(--main-color);
@@ -148,6 +162,9 @@ footer h5 {
 	padding: 10px 0;
 	border-bottom: 1px solid var(--border-color);
 }
+.notes-list i {
+	margin-right: 10px;
+}
 // user-form
 .user-form div {
 	margin: 25px 0;
@@ -164,6 +181,7 @@ footer h5 {
 // my-notes
 .mynotes-nav {
 	margin-top: 20px;
+	margin-bottom: 50px;
 	padding: var(--width-custom);
 	border-bottom: 1px solid var(--border-color);
 	display: flex;
@@ -180,17 +198,16 @@ footer h5 {
 	border: 1px solid white;
 }
 
-// gridに変更したい
 .mynotes-main {
 	padding: var(--width-custom);
-	display: flex;
-	justify-content: space-around;
-	flex-wrap: wrap;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, 370px);
+	grid-auto-rows: 480px;
+	justify-content: center;
 }
 .each-note {
+	width: 350px;
 	height: 450px;
-	width: 400px;
-	margin: 10px 0;
 	border-radius: 20px;
 	border: 1px solid var(--border-color);
 	overflow: scroll;
@@ -208,7 +225,7 @@ footer h5 {
 }
 .actions {
 	position: absolute !important;
-	left: 118px;
+	left: 103px;
 	bottom: -15px;
 	background: transparent;
 	border: none;
@@ -218,7 +235,7 @@ footer h5 {
 	min-width: 100px !important;
 	text-align: center !important;
 	top: 13px !important;
-	left: 52px !important;
+	left: 27px !important;
 }
 
 .list-item {
