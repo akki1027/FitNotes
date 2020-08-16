@@ -13,12 +13,17 @@ class UsersController < ApplicationController
 
   def update
     user = User.find(params[:id])
-    user.update(user_params)
-    redirect_to user_path(user)
+    if user.update(user_params)
+      flash[:notice] = '会員情報を変更しました。'
+      redirect_to user_path(user)
+    else
+      @user = current_user
+      render :edit
+    end
   end
 
   def my_notes
-    @notes = Note.all
+    @notes = Note.where(user_id: current_user.id)
   end
 
   private

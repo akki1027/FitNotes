@@ -1,4 +1,9 @@
 <section>
+	<% if flash[:notice].present? %>
+		<div class="message">
+			<%= flash[:notice] %>
+		</div>
+	<% end %>
 	<nav>
 		<%= render 'homes/sidenav' %>
 	</nav>

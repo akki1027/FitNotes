@@ -13,8 +13,15 @@ class NotesController < ApplicationController
 	end
 
 	def create
-		current_user.notes.create(note_params)
-		redirect_to edit_note_path(current_user.notes.last.id)
+		note = Note.new(note_params)
+		note.user_id = current_user.id
+		if note.save
+			flash[:notice] = "ノートを作成しました。"
+			redirect_to edit_note_path(current_user.notes.last.id)
+		else
+			@note = Note.new
+			render :new
+		end
 	end
 
 	def edit
@@ -30,9 +37,14 @@ class NotesController < ApplicationController
 	end
 
 	def destroy
-		@note = Note.find(params[:id])
-		@note.destroy
-		redirect_to my_notes_path
+		note = Note.find(params[:id])
+		if note.destroy
+			flash[:notice] = 'ノートを削除しました。'
+			redirect_to my_notes_path
+		else
+			@notes = Note.where(user_id: current_user.id)
+			render 'users/my_notes'
+		end
 	end
 
 	private
